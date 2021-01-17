@@ -19,8 +19,8 @@ RSpec.describe User, type: :model do
     end
   end
 
-  describe 'class methods' do
-    it '::community returns 5 random users with >= 3 images' do
+  describe 'model methods' do
+    before(:each) do
       User.create!(username: 'Phil', password: 'password')
       User.create!(username: 'Alex', password: 'password')
       User.create!(username: 'Patrick', password: 'password')
@@ -33,10 +33,22 @@ RSpec.describe User, type: :model do
             io: File.open(Rails.root + 'spec/files/test/junior-1615.jpg'),
             filename: 'img.jpg',
             content_type: 'image/*')
-          end
         end
+      end
+    end
+
+    it '::community returns 5 random users with >= 3 images' do
       expect(User.community.size).to eq(5)
       expect(User.third.images.size).to eq(3)
+    end
+    
+    it '#order_by_date' do
+      user = User.first
+      
+      expected = [user.images.third, user.images.second, user.images.first]
+      actual = user.images_by_date
+
+      expect(actual).to eq(expected)
     end
   end
 end
