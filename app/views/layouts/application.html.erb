@@ -13,7 +13,7 @@
   <body>
     <nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
       <div class="navbar-brand">
-        <a class="navbar-item" href="/">Shopigram</a>
+        <a class="navbar-item is-italic is-size-1" href="/">Shopigram</a>
 
         <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarData">
           <span aria-hidden="true"></span>
@@ -24,31 +24,47 @@
 
       <div class="navbar-menu is-size-4" id="navbarData">
         <div class="navbar-start">
-          <%= link_to 'Home', root_path, class: 'navbar-item' %>
         </div>
 
         <div class="navbar-end">
           <% if current_user %>
             <%= link_to 'Profile', user_profile_path, class: 'navbar-item' %>
-            <%= link_to 'Logout', method: :delete, class: 'navbar-item' %>
+            <%= link_to 'Logout', logout_path, method: :delete, class: 'navbar-item' %>
           <% else %>
-            <%= link_to 'Sign Up', new_user_path, class: 'navbar-item button is-info' %>
-            <%= link_to 'Log In', new_session_path, class: 'navbar-item button is-success' %>
+            <%= link_to 'Sign Up', new_user_path, class: 'navbar-item button is-large is-primary mx-3 mt-3' %>
+            <%= link_to 'Log In', new_session_path, class: 'navbar-item button is-large is-primary is-inverted mx-3 mt-3' %>
           <% end %>
         </div>
       </div>
     </nav>
     
-    <div class="section">
-      <% flash.each do |type, msg| %>
-        <div class="message is-info">
-          <%= msg %>
+    <section class="section mt-6">
+    <% if !flash.empty? %>
+      <article class="message is-primary is-inverted" id="flash-message">
+        <div class="message-body">
+          <% flash.each do |type, messages| %>
+            <% if messages.respond_to?('each') %>
+              <% messages.each do |message| %>
+                <p><%= message %></p>
+              <% end %>
+            <% else %>
+              <p><%= messages %></p>
+            <% end %>
+          <% end %>
         </div>
-      <% end %>
-    </div>
-
-    <section class="section">
+      </article>
+    <% end %>
       <%= yield %>
     </section>
+    <footer class="footer mt-6">
+      <div class="content has-text-centered">
+        <p>
+          <strong>Shopigram is a Rails & Bulma playground</strong> by <a href="https://philmccarthy.dev">Phil McCarthy</a>.
+        </p>
+        <p>
+          Find me on <a href="https://github.com/philmccarthy">GitHub</a> and <a href="https://www.linkedin.com/in/pjmcc/">LinkedIn</a>.
+        </p>
+      </div>
+    </footer>
   </body>
 </html>
