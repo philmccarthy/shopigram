@@ -91,7 +91,7 @@ RSpec.describe 'welcome index', type: :feature do
       expect(page).to have_content('Something went wrong, please try again.')
     end
 
-    it 'populates community feed with images' do
+    it 'populates community feed with images ordered by most recently posted' do
       visit root_path
 
       click_on 'Log In'
@@ -107,9 +107,16 @@ RSpec.describe 'welcome index', type: :feature do
         click_on 'Post'
       end
 
-      expect(page).to have_css("#image-#{user.images.first.id}", count: 2)
-      expect(page).to have_css("#image-#{user.images.second.id}", count: 2)
-      expect(page).to have_css("#image-#{user.images.third.id}", count: 2)
+      image_1 = user.images.first
+      image_2 = user.images.second
+      image_3 = user.images.third
+
+      expect(page).to have_css("#image-#{image_1.id}", count: 2)
+      expect(page).to have_css("#image-#{image_2.id}", count: 2)
+      expect(page).to have_css("#image-#{image_3.id}", count: 2)
+
+      within('#')
+      expect(user.images.first)
     end
   end
 end
