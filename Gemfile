@@ -70,7 +70,6 @@ group :test do
   gem 'orderly'
   gem 'awesome_print', :require => 'ap'
   gem 'hirb'
-  gem 'factory_bot_rails'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
