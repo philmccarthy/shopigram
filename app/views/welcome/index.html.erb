@@ -1,7 +1,7 @@
 <% if current_user %>
   <%= render partial: 'users/upload_form' %>
   <section class="section">
-    <h2 class="title has-text-centered"><%= current_user.username %>'s Images</h2>
+    <h2 class="title has-text-centered mt-4"><%= current_user.username %>'s Images</h2>
   </section>
   <%= render partial: 'users/image_grid', locals: { user_scope: current_user } %>
 <% else %>
