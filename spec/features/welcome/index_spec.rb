@@ -39,6 +39,8 @@ RSpec.describe 'welcome index', type: :feature do
     end
 
     it 'can logout' do
+      visit root_path
+      
       click_on 'Log In'
       
       within('#login-form') do
@@ -58,11 +60,56 @@ RSpec.describe 'welcome index', type: :feature do
     it 'can upload images' do
       visit root_path
 
-      click_on 'Browse Files...'
+      click_on 'Log In'
+      
+      within('#login-form') do
+        fill_in 'session[username]', with: user.username
+        fill_in 'session[password]', with: user.password
+        click_on 'Log In'
+      end
+      
+      attach_file('images[]', Rails.root + 'spec/files/test/junior-1615.jpg', visible: false)
 
-      attach_file('images[]', '/app/images/test/junior-1615.jpg')
+      click_on 'Post'
+      
+      expect(page).to have_css("#image-#{user.images.first.id}")
+    end
 
-      expect(page).to have_content('test_image.jpg')
+    it 'shows error message when image is not uploaded' do
+      visit root_path
+
+      click_on 'Log In'
+      
+      within('#login-form') do
+        fill_in 'session[username]', with: user.username
+        fill_in 'session[password]', with: user.password
+        click_on 'Log In'
+      end
+
+      click_on 'Post'
+
+      expect(page).to have_content('Something went wrong, please try again.')
+    end
+
+    it 'populates community feed with images' do
+      visit root_path
+
+      click_on 'Log In'
+      
+      within('#login-form') do
+        fill_in 'session[username]', with: user.username
+        fill_in 'session[password]', with: user.password
+        click_on 'Log In'
+      end
+
+      3.times do
+        attach_file('images[]', Rails.root + 'spec/files/test/junior-1615.jpg', visible: false)
+        click_on 'Post'
+      end
+
+      expect(page).to have_css("#image-#{user.images.first.id}", count: 2)
+      expect(page).to have_css("#image-#{user.images.second.id}", count: 2)
+      expect(page).to have_css("#image-#{user.images.third.id}", count: 2)
     end
   end
 end
