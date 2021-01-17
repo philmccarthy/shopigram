@@ -1,5 +1,7 @@
 <h1 class="title has-text-centered mt-6">Log in</h1>
 <%= form_with scope: :session, url: login_path, id: 'login-form' do |form| %>
   <%= render partial: '/users/form_fields', locals: { form: form } %>
-  <%= form.submit 'Log In', class: 'button is-large is-primary' %>
+  <div class="buttons is-centered">
+    <%= form.submit 'Log In', class: 'button is-large is-primary' %>
+  </div>
 <% end %>

@@ -3,12 +3,9 @@
   <div class="file is-pulled-right">
     <%= form_with model: @user, url: user_path(current_user), method: :patch do |form| %>
       <%= form.submit 'Post', class: 'button is-success' %>
-      <label class="button is-primary">
-        Browse Files...
-        <span style="display:none;">
+      <div class="file-cta">
         <%= form.file_field :images, multiple: true, accept: 'image/*' %>
-        </span>
-      </label>
+      </div>
     <% end %>
   </div>
 </div>

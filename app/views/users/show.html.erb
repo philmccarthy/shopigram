@@ -1,1 +1,7 @@
-<h1>Hello, <%= @user.username %>!</h1>
+<section class="section">
+  <h1>Hello, <%= @user.username %>!</h1>
+</section>
+
+<div class="buttons is-centered">
+  <%= link_to 'Return to feed', root_path, class: 'button is-large is-primary' %>
+</div>

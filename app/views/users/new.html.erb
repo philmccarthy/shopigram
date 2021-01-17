@@ -1,5 +1,7 @@
 <h1 class="title has-text-centered mt-6">Sign Up</h1>
 <%= form_with model: @user, url: users_path do |form| %>
   <%= render partial: 'form_fields', locals: { form: form } %>
-  <%= form.submit 'Create Account', class: 'button is-large is-primary' %>
+  <div class="buttons is-centered">
+    <%= form.submit 'Create Account', class: 'button is-large is-primary' %>
+  </div>
 <% end %>
