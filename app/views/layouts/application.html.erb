@@ -7,7 +7,7 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <link rel="stylesheet" href="https://unpkg.com/bulmaswatch/solar/bulmaswatch.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/bulmaswatch/default/bulmaswatch.min.css">
   </head>
 
   <body>
@@ -38,7 +38,7 @@
       </div>
     </nav>
     
-    <section class="section mt-6">
+    <section class="section has-text-centered mt-6">
     <% if !flash.empty? %>
       <article class="message is-primary is-inverted" id="flash-message">
         <div class="message-body">
@@ -57,9 +57,12 @@
       <%= yield %>
     </section>
     <footer class="footer mt-6">
-      <div class="content has-text-centered">
+      <div class="content has-text-centered is-italic">
         <p>
-          <strong>Shopigram is a Rails & Bulma playground</strong> by <a href="https://philmccarthy.dev">Phil McCarthy</a>.
+          Shopigram is a Rails, ActiveStorage, & AWS S3 playground
+        <p>
+          by <a href="https://philmccarthy.dev">Phil McCarthy</a>
+        </p>
         </p>
         <p>
           Find me on <a href="https://github.com/philmccarthy">GitHub</a> and <a href="https://www.linkedin.com/in/pjmcc/">LinkedIn</a>.
