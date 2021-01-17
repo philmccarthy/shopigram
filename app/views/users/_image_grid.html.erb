@@ -1,0 +1,11 @@
+<% user_scope.images.each_slice(3) do |images| %>
+<div class="columns is-desktop is-vcentered">
+  <% images.each do |image| %>
+    <div class="column is-one-third">
+      <figure class="image is-256x256">
+        <%= image_tag image.variant(resize: "270x270^").processed, class: 'box', id: "image-#{image.id}" %>
+      </figure>
+    </div>
+  <% end %>
+</div>
+<% end %>
