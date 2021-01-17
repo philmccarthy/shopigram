@@ -13,6 +13,18 @@ class UsersController < ApplicationController
     @user = current_user
   end
 
+  def update
+    if params[:images]
+      params[:images].each do |image|
+        current_user.images.attach(image)
+      end
+      redirect_to root_path
+    else
+      flash[:error] = 'Something went wrong, please try again.'
+      render root_path
+    end
+  end
+
   private
   def user_params
     params.permit(:username, :password)
