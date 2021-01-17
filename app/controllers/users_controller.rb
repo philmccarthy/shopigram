@@ -21,7 +21,7 @@ class UsersController < ApplicationController
       redirect_to root_path
     else
       flash[:error] = 'Something went wrong, please try again.'
-      render root_path
+      redirect_to root_path
     end
   end
 
