@@ -58,13 +58,13 @@ Shopigram is an image repository app that I built for Shopify's Summer 2021 inte
 
 <!-- GETTING STARTED -->
 ## Getting Started
-To get a local copy up and running follow these simple example steps.
+To get a local copy up and running follow these steps.
 
 ### Prerequisites
 * Ruby 2.5.3
 * Rails 5.2.4.4
 
-I built Shopigram while attending Turing School's backend engineering program. The curriculum is currently aligned with these versions of Ruby & Rails.
+I built Shopigram while enrolled in [Turing School](https://turing.io/)'s backend engineering program (although this is not a Turing project). The curriculum is currently aligned with these versions of Ruby & Rails.
 
 ### Installation
 
