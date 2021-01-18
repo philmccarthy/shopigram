@@ -67,7 +67,7 @@ I built Shopigram while enrolled in [Turing School](https://turing.io/)'s backen
 
 ### Installation
 
-To see the Shopigram working in a local development environment:
+To see the Shopigram app working in a local development environment:
 
 1. Clone the repo
    ```sh
