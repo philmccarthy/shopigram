@@ -58,7 +58,6 @@ Shopigram is an image repository app that I built for Shopify's Summer 2021 inte
 
 <!-- GETTING STARTED -->
 ## Getting Started
-To get a local copy up and running follow these steps.
 
 ### Prerequisites
 * Ruby 2.5.3
