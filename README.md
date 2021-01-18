@@ -53,6 +53,7 @@ Shopigram is an image repository app that I built for Shopify's Summer 2021 inte
 
 * [Ruby on Rails](https://rubyonrails.org/)
 * [rspec-rails](https://github.com/rspec/rspec-rails)
+* [Postgresql](https://www.postgresql.org/)
 * [Bulma CSS Framework](https://bulma.io/)
 
 <!-- GETTING STARTED -->
