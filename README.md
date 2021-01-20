@@ -78,7 +78,7 @@ To see the Shopigram app working in a local development environment:
    ```sh
    bundle install
    ```
-3. Run the test suit
+3. Run the test suite
     ```sh
     bundle exec rspec
     ```
