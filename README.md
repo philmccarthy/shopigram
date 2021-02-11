@@ -40,7 +40,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-Shopigram is an image repository app that I built for Shopify's Summer 2021 internship challenge. The app allows a visitor to create an account, upload images, and see posts from the community.
+Shopigram is an image repository app that I built in a couple days. The app allows a visitor to create an account, upload images, and see posts from the community.
 
 ### Features
 
